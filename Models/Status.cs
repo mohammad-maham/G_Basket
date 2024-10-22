@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace G_Wallet_API.Models;
+namespace G_Basket_API.Models;
 
 public partial class Status
 {
@@ -9,5 +9,5 @@ public partial class Status
 
     public string Name { get; set; } = null!;
 
-    public string Caption { get; set; } = null!;
+    public string? Caption { get; set; }
 }
