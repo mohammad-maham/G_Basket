@@ -8,6 +8,13 @@ namespace G_Wallet_API.Common;
 public class Enums
 {
 
+
+    public enum CardStatus
+    {
+        Active=1,
+        NotActive=-1,
+        Paid=2
+    }
     public enum GoldHost
     {
         Accounting,

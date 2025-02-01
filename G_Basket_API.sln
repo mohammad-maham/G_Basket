@@ -5,6 +5,8 @@ VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "G_Basket_API", "G_Basket_API.csproj", "{DCC4EB5A-BD48-4C84-B0E5-845E0C16FB3A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "G_Basket_API.Tests", "Tests\G_Basket_API.Tests\G_Basket_API.Tests.csproj", "{60586E8F-A524-4566-8302-C29DC7989975}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{DCC4EB5A-BD48-4C84-B0E5-845E0C16FB3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCC4EB5A-BD48-4C84-B0E5-845E0C16FB3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCC4EB5A-BD48-4C84-B0E5-845E0C16FB3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60586E8F-A524-4566-8302-C29DC7989975}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60586E8F-A524-4566-8302-C29DC7989975}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60586E8F-A524-4566-8302-C29DC7989975}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60586E8F-A524-4566-8302-C29DC7989975}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

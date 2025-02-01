@@ -15,11 +15,76 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="NodaTime" Version="3.1.9" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.10" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.Design" Version="1.1.0" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.NodaTime" Version="8.0.10" />
     <PackageReference Include="RestSharp" Version="112.1.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.9.0" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="Tests" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Compile Remove="Tests\G_Basket_API.Tests\**" />
+    <Compile Remove="Controllers\FundController.cs" />
+    <Compile Remove="BusinessLogic\**" />
+    <Compile Remove="G_Basket_API.Tests\**" />
+    <Compile Update="Localization\Resource.fa.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resource.fa.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\SharedResource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SharedResource.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Tests\G_Basket_API.Tests\**" />
+    <EmbeddedResource Remove="BusinessLogic\**" />
+    <EmbeddedResource Remove="G_Basket_API.Tests\**" />
+    <EmbeddedResource Update="Localization\Resource.fa.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.fa.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\SharedResource.fa.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SharedResource.fa.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\SharedResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SharedResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Remove="Tests\G_Basket_API.Tests\**" />
+    <None Remove="BusinessLogic\**" />
+    <None Remove="G_Basket_API.Tests\**" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Content Remove="Tests\G_Basket_API.Tests\**" />
+    <Content Remove="BusinessLogic\**" />
+    <Content Remove="G_Basket_API.Tests\**" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Tests\G_Basket_API.Tests\obj\G_Middleware_API.Tests.csproj.nuget.dgspec.json" />
+    <_ContentIncludedByDefault Remove="Tests\G_Basket_API.Tests\obj\project.assets.json" />
+    <_ContentIncludedByDefault Remove="Tests\G_Basket_API.Tests\obj\project.packagespec.json" />
+    <_ContentIncludedByDefault Remove="G_Basket_API.Tests\obj\project.packagespec.json" />
   </ItemGroup>
   
 </Project>

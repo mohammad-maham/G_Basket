@@ -21,14 +21,17 @@
 //app.MapControllers();
 
 //app.Run();
-using G_Wallet_API.BusinessLogic;
-using G_Wallet_API.BusinessLogic.Interfaces;
+
+using System.Globalization;
+using System.Text.Json.Serialization;
+using G_Basket_API.Middleware;
+using G_Basket_API.Models;
 using G_Wallet_API.Models;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using System.Text.Json.Serialization;
 
-namespace Accounting;
+namespace G_Basket_API;
 
 public class Program
 {
@@ -41,6 +44,20 @@ public class Program
         builder.Services.AddControllers().AddJsonOptions(opt =>
         {
             opt.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+        });
+        
+        builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+        const string defaultCulture = "fa";
+
+        var supportedCultures = new[]
+        {
+            new CultureInfo(defaultCulture),
+        };
+
+        builder.Services.Configure<RequestLocalizationOptions>(options => {
+            options.DefaultRequestCulture = new RequestCulture(defaultCulture);
+            options.SupportedCultures = supportedCultures;
+            options.SupportedUICultures = supportedCultures;
         });
 
         builder.Services.AddEndpointsApiExplorer();
@@ -71,16 +88,14 @@ public class Program
            });
         });
 
-        builder.Services.AddDbContext<GWalletDbContext>(options =>
+        builder.Services.AddDbContext<GBasketDbContext>(options =>
         options.UseNpgsql(builder.Configuration.GetConnectionString("GWalletDbContext"),
 options => options.UseNodaTime()));
 
 
         builder.Services.AddProblemDetails();
 
-        builder.Services.AddScoped<IFund, Fund>();
-
-        builder.Services.AddProblemDetails();
+      //  builder.Services.AddScoped<IFund, Fund>();
 
         WebApplication app = builder.Build();
 
@@ -96,7 +111,10 @@ options => options.UseNodaTime()));
         app.UseHttpsRedirection();
         app.UseAuthentication();
         app.UseAuthorization();
+        app.UseRequestLocalization();
+
         //app.UseMiddleware<ExceptionMiddleware>();
+       // app.UseMiddleware<ExceptionMiddleware>();
         app.MapControllers();
 
         app.Run();

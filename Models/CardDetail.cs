@@ -14,7 +14,9 @@ public partial class CardDetail
 
     public short Status { get; set; }
 
-    public LocalTime RegDate { get; set; }
-
     public decimal Amount { get; set; }
+
+    public Instant RegDate { get; set; }
+
+    public int EntityId { get; set; }
 }
